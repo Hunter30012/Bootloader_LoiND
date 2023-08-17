@@ -1,0 +1,120 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\main.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\main.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\source" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\MKL46Z\system_MKL46Z4.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\MKL46Z\system_MKL46Z4.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\startup" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Flash.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Flash.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Move_VTOR.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Move_VTOR.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\My_Lib.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\My_Lib.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Queue.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Queue.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Srec.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Srec.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.xcl : COMPILER_XCL 
+  xclcommand = -source_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\UART.c" -xcl_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.xcl" -macro_file "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.tmp" -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\UART.c" -D CPU_MKL46Z256VLL4 -o "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\source\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\CMSIS\Include\\" -I "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\..\MKL46Z\\" -Ol --predef_macros "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.tmp"
+  rspfile_name = D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.xcl.rsp
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\main.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\MKL46Z\system_MKL46Z4.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Flash.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Move_VTOR.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\My_Lib.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Queue.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\Srec.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.pbi : INDEXER D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.xcl |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\source\UART.c
+  flags = "-out=D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.pbi" -f "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.xcl"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2.pbw : MAKEBROWSE D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2.pbd
+  flags = "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2.pbd" -output "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2.pbw"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part0.pbi : PDBLINK D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.pbi |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.pbi
+  flags = -M "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part0.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\source\main.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\startup\system_MKL46Z4.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Flash.pbi"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part1.pbi : PDBLINK D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.pbi |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.pbi $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.pbi
+  flags = -M "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part1.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Move_VTOR.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\My_Lib.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Queue.pbi"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part2.pbi : PDBLINK D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.pbi |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.pbi
+  flags = -M "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part2.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Srec.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\UART.pbi"
+
+build D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2.pbd : PDBLINK D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part0.pbi |  $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part1.pbi $
+D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part2.pbi
+  flags = -M "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2.pbd" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part0.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part1.pbi" "D$:\Asg_EMB\Ôn$ tập\LoiND4_MOCK2_EMB\MOCK2_EMB\project\Debug\BrowseInfo\Mock2_part2.pbi"
+
